@@ -1,0 +1,5 @@
+rules:
+  - dummy:
+      commenter:
+        comment: "This is just a comment"
+        
