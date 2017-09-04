@@ -1,1 +1,4 @@
-
+rules:
+  some:
+    labeler:
+       label: question
