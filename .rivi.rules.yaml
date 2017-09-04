@@ -1,8 +1,8 @@
 rules:
   some:
-   labeler:
+    labeler:
        remove: question
        
-   bug:
+  bug:
     labeler:
        label: bug
