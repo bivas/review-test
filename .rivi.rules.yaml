@@ -1,4 +1,7 @@
 rules:
   some:
     labeler:
-       label: question
+       remove: question
+   bug:
+    labeler:
+       label: bug
