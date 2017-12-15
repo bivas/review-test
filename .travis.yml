@@ -4,6 +4,7 @@ go:
 script:
 - echo "Testing"
 after_deploy:
+- env
 - git config --global user.email "bivas@users.noreply.github.com"
 - git config --global user.name "Eliran Bivas"
 - git remote set-branches --add origin master
