@@ -10,6 +10,7 @@ after_deploy:
 - git remote set-branches --add origin master
 - git fetch
 - git checkout master
+- git pull --ff-only
 - git merge $TRAVIS_TAG --no-ff
 - git push origin master;
 deploy:
