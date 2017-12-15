@@ -6,10 +6,7 @@ script:
 after_deploy:
 - git config --global user.email "travis@travis-ci.org"
 - git config --global user.name "Travis CI"
-- git checkout master ;
-- git pull --ff-only ;
-- git merge $TRAVIS_TAG --no-ff ;
-- git push ;
+- git push origin HEAD:master;
 deploy:
   provider: releases
   api_key:
