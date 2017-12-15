@@ -4,15 +4,15 @@ go:
 script:
 - echo "Testing"
 after_deploy:
-- env
+- env | sort
 - git config --global user.email "bivas@users.noreply.github.com"
 - git config --global user.name "Eliran Bivas"
 - git remote set-branches --add origin master
 - git fetch
 - git checkout master
-- git pull --ff-only
-- git merge $TRAVIS_TAG --no-ff
-- git push origin master;
+- git pull
+- git merge $TRAVIS_TAG
+- git push origin master
 deploy:
   provider: releases
   api_key:
