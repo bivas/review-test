@@ -6,7 +6,11 @@ script:
 after_deploy:
 - git config --global user.email "bivas@users.noreply.github.com"
 - git config --global user.name "Eliran Bivas"
-- git push origin HEAD:master;
+- git remote set-branches --add origin master
+- git fetch
+- git checkout master
+- git merge $TRAVIS_TAG --no-ff
+- git push origin master;
 deploy:
   provider: releases
   api_key:
