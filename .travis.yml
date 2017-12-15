@@ -1,0 +1,20 @@
+language: go
+go:
+- '1.9'
+script:
+- echo "Testing"
+after_deploy:
+- git config --global user.email "travis@travis-ci.org"
+- git config --global user.name "Travis CI"
+- git checkout master ;
+- git pull --ff-only ;
+- git merge $TRAVIS_TAG --no-ff ;
+- git push ;
+deploy:
+  provider: releases
+  api_key:
+    secure: IX0pia/zMpsOI+Gi5Xt7xWWTGTXX6rOXfGKUmtBp262NrdLw+aiMNIFmjYi0QA0hveoxTPnVRdmhzQMM5IbfrhbDcvhTj2AP6xDxFMmP4IPJlzhOZ9PxiAacuxOFx0kfyJWFhWKFd0lgG1GGK9LG718V0EwHa8N2XFqkepebag1Lr7FOZ3Tf8qYH73do2rk3oFcZS97xmHO9gktoVyEiVJX/RoyZdB+nMnBnlynM+jvmI/ksFBQU+w8wzck/4N9wXZsIV6TTMDWT95h4qOGBObERvni6mXFfMSbAwmPgc6+qFVfiVF1lLyPud0LrfXC+YmS2ftX1/CH6WteljArNpZDhNdYsT+AHrYKcdfXVFBMWFlke3hoGI6Fqyxv5n4y4bxDL5OSuyxPcbI8kfTrv+YqYhjxVsgf0uBLaZOopgsCGBAjdjQaHuWCN1BLdvQPB0pxQCF3LsrMiTFGDh+E2EONy6X3mXbJ37NT7ywGbj7vNWvyO20/eYtIc9ZvLdOXViyY1tZbE2Bbb7VTFG7cXtQvfsRAvJ7zchT1icdPymCIrz6AlXWC3thbefP7SH6haAUwcmewXGLCxSDi1Zb1MhgRZtC7K/SiyeGc0XMpuoRmYX6udjGB/CnTYLruoDl63yjnF3GZvr4DMczRdL4ijkQ3MSl71lQjBazNJXjGcpJ8=
+  file: file.txt
+  skip_cleanup: true
+  on:
+    tags: true
